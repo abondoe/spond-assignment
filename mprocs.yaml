@@ -1,0 +1,4 @@
+procs:
+  "🌐 Spond assignment frontend":
+    shell: "cd frontend && npm run dev"
+    stop: "SIGKILL"
