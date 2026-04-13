@@ -1,4 +1,6 @@
 procs:
-  "🌐 Spond assignment frontend":
+  "🌐 frontend":
     shell: "cd frontend && npm run dev"
     stop: "SIGKILL"
+  "⚡ backend":
+    shell: "cd backend && air"
