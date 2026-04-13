@@ -1,0 +1,4 @@
+[tools]
+node = "24"
+go = "1.26"
+mprocs = "0.8.3"
