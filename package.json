@@ -1,0 +1,22 @@
+{
+  "name": "spond-assignment",
+  "version": "1.0.0",
+  "scripts": {
+    "backend:run": "cd backend/cmd/api && air",
+    "backend:build": "cd backend && go build -o bin/api ./cmd/api",
+    "backend:test": "cd backend && go test ./...",
+    "frontend:install": "cd frontend && npm install",
+    "frontend:run": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "generate:types": "cd backend && tygo generate",
+    "db:migrate": "psql postgres://postgres:postgres@localhost:5432/spond?sslmode=disable -f backend/migrations/001_init.sql",
+    "db:clear": "psql postgres://postgres:postgres@localhost:5432/spond?sslmode=disable -c \"DROP TABLE IF EXISTS registrations;\"",
+    "db:upd": "docker compose up -d",
+    "db:up": "docker compose up",
+    "db:downd": "docker compose down",
+    "dev": "mprocs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}

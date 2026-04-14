@@ -1,0 +1,7 @@
+packages:
+  - path: "abondoe/spond-assignment/internal/models/dto"
+    output_path: "../frontend/src/generated-types/api.ts"
+    type_mappings:
+      time.Time: "string /* RFC3339 */"
+      uuid.UUID: "string /* uuid */"
+      types.CompactUUID: "string /* uuid */"

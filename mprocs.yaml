@@ -1,6 +1,9 @@
 procs:
   "🌐 frontend":
-    shell: "cd frontend && npm run dev"
+    shell: "npm run frontend:run"
     stop: "SIGKILL"
   "⚡ backend":
-    shell: "cd backend && air"
+    shell: "npm run backend:run"
+    stop: "SIGKILL"
+  "🗄️ container":
+    shell: "npm run db:up"
