@@ -1,9 +1,10 @@
 procs:
-  "🌐 frontend":
+  "🌐 frontend-dev":
     shell: "npm run frontend:run"
     stop: "SIGKILL"
-  "⚡ backend":
+  "⚡ backend-dev":
     shell: "npm run backend:run"
     stop: "SIGKILL"
   "🗄️ container":
     shell: "npm run db:up"
+    stop: "SIGKILL"
