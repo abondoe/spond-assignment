@@ -16,7 +16,7 @@ The backend exposes a REST API consumed by the frontend. TypeScript types are ge
  
 ---
  
-## Getting Started
+## Getting started
  
 ### Prerequisites
  
@@ -45,7 +45,7 @@ To install playwright globally:
 npx playwright install
 ```
 
-### Start Everything at Once
+### Start everything at once
 
 Mprocs is one of the tools that are installed by mise. Run mprocs to spin up the backend, frontend, and db for development:
 
@@ -71,7 +71,7 @@ npm run db:migrate
 
 
  
-### Start Services Individually
+### Start services individually
  
 If you prefer to run services separately (in separate terminals):
  
