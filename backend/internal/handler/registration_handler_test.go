@@ -12,8 +12,6 @@ import (
 	"testing"
 )
 
-// Konverter alle tekstene til engelsk for konsistens, og for å unngå forvirring i testene.
-
 func TestCreateRegistrationHandler(t *testing.T) {
 	tests := []struct {
 		name           string
@@ -67,7 +65,7 @@ func TestCreateRegistrationHandler(t *testing.T) {
 			mockSvc := &mockRegistrationService{createRegistrationFn: tt.mockBehavior}
 			h := handler.NewRegistrationHandler(mockSvc)
 
-			// Prepare body (håndterer både struct og råstreng for feil-testing)
+			// Prepare body
 			var body []byte
 			if s, ok := tt.requestBody.(string); ok {
 				body = []byte(s)

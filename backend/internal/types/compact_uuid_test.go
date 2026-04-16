@@ -9,8 +9,6 @@ import (
 	"github.com/google/uuid"
 )
 
-// Oversett kommentarer til engelsk for å gjøre det mer universelt, og for å unngå forvirring for andre utviklere som kanskje ikke forstår norsk.
-
 func TestCompactUUID(t *testing.T) {
 	// We use a fixed UUID to know exactly what we expect
 	rawID := "550e8400-e29b-41d4-a716-446655440000"
@@ -37,7 +35,6 @@ func TestCompactUUID(t *testing.T) {
 			t.Fatalf("MarshalJSON feilet: %v", err)
 		}
 
-		// JSON-strenger er pakket inn i fnutter: "VERDI"
 		expectedJSON := `"` + expectedCompact + `"`
 		if string(data) != expectedJSON {
 			t.Errorf("forventet %s, fikk %s", expectedJSON, string(data))
@@ -88,7 +85,7 @@ func TestCompactUUID(t *testing.T) {
 				}
 
 				if !tt.wantErr {
-					// Sjekk at verdien faktisk ble korrekt parset tilbake til UUID-en vår
+					// Check that the value got correctly parsed back to the UUID
 					if uuid.UUID(c) != u {
 						t.Errorf("forventet %v, fikk %v", u, uuid.UUID(c))
 					}

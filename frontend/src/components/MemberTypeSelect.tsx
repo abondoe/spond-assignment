@@ -21,7 +21,6 @@ function MemberTypeSelect({
   onChange,
   error,
 }: MemberTypeSelectProps) {
-  // Finn objektet basert på propen 'value' i stedet for intern state
   const selectedMemberType = memberTypes?.find(
     (t) => t.id.toString() === value,
   );
