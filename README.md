@@ -50,13 +50,16 @@ npx playwright install
 Mprocs is one of the tools that are installed by mise. Run mprocs to spin up the backend, frontend, and db for development:
 
 If it is the first time you run `mprocs` you must install all code dependencies first:
-
 ```bash
 npm run install
  ```
 
-Then spin up everything:
+Generate the shared types:
+```bash
+npm run generate:types
+```
 
+Then spin up everything:
 ```bash
 mprocs
  ```
