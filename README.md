@@ -1,11 +1,174 @@
-Development
+# Spond Assignment – Member Registration Wizard
+ 
+A fullstack application for registering member through a multi-step wizard. Built with a **Go backend**, a **React frontend**, and **PostgreSQL** for persistence.
+ 
+---
+ 
+## Architecture
+ 
+```
+spond-assignment/
+├── backend/     # Go REST API with hot-reloading (air) and TypeScript type generation (tygo)
+└── frontend/    # React app built with Vite, Tailwind CSS, and Shadcn UI
+```
+ 
+The backend exposes a REST API consumed by the frontend. TypeScript types are generated directly from Go structs using `tygo`, keeping the two layers in sync without manual duplication.
+ 
+---
+ 
+## Getting Started
+ 
+### Prerequisites
+ 
+| Tool | Version | Required |
+|------|---------|----------|
+| Docker & Docker Compose | Latest | ✅ |
+| Mise-en-place | Latest | ✅ |
+| Tygo | Latest | ✅ |
+ 
+Find the installation instructions for mise (Mise-en-place) here: https://mise.jdx.dev/getting-started.html
 
-Install mise-en-place for dev environment management: https://mise.jdx.dev/getting-started.html
+After mise installation, run in project root:
+```bash
+mise trust
+mise install
+```
 
-Run mise trust
+To install tygo globally, run:
+```bash
+go install github.com/gzuidhof/tygo@latest
+```
 
-Run mise install
+### Start Everything at Once
 
-Installer tygo for frontend type generering fra backend typer: go install github.com/gzuidhof/tygo@latest
+Mprocs is one of the tools that are installed by mise. Run mprocs to spin up the backend, frontend, and db for development:
+```bash
+ mprocs
+ ```
 
-Run mprocs to spin up the backend and the frontend for local development: mprocs
+ > Frontend found on: http://localhost:5180/
+ 
+ > Use http://localhost:5180/B171388180BC457D9887AD92B6CCFC86 to access the preconfigured form
+
+This single command starts all three services concurrently. Make sure Docker is running before you execute it, as the database starts in a container.
+ 
+### Start Services Individually
+ 
+If you prefer to run services separately (in separate terminals):
+ 
+```bash
+# Start the database
+npm run db:up
+```
+```bash
+# Start the backend (with hot-reload)
+npm run backend:run
+```
+```bash
+# Start the frontend (with hot-reload)
+npm run frontend:run
+```
+ 
+---
+ 
+## Development
+ 
+### Backend
+ 
+The backend uses [`air`](https://github.com/air-verse/air) for hot-reloading — any changes to `.go` files will automatically restart the server.
+
+```bash
+npm run backend:run
+```
+ 
+To regenerate TypeScript types after modifying Go structs: 
+```bash
+npm run generate:types
+```
+
+To check for lints:
+```bash
+npm run backend:lint
+# or
+npm run backend:lint-fix
+```
+
+To format the code:
+```bash
+npm run backend:format
+# or
+npm run backend:format-check
+```
+
+
+ 
+Generated types are written to the frontend so both sides stay in sync.
+ 
+### Frontend
+ 
+The frontend is a React + Vite app styled with [Tailwind CSS](https://tailwindcss.com/) and [Shadcn UI](https://ui.shadcn.com/) components.
+ 
+```bash
+npm run frontend:install
+npm run frontend:run
+```
+
+To check for lints:
+```bash
+npm run frontend:lint
+# or
+npm run frontend:lint-fix
+```
+
+To format the code:
+```bash
+npm run frontend:format
+# or
+npm run frontend:format-check
+```
+ 
+---
+ 
+## Database
+ 
+PostgreSQL runs in Docker. The connection is configured via environment variables, or fallbacks to values for local development.
+ 
+```bash
+# Start only the database
+npm run db:up
+
+# Start only the database as a daemon
+npm run db:upd
+ 
+# Stop and remove containers
+npm run db:downd
+
+# Migrate
+npm run db:migrate
+ 
+# Wipe data
+npm run db:clear
+```
+ 
+---
+ 
+## Testing
+ 
+```bash
+# Backend tests
+npm run backend:test
+ 
+# Frontend tests
+npm run frontend:test
+
+# End to end test
+npm run e2e:upd
+# Wait until the system is up
+npm run e2e:test
+```
+
+---
+## Future improvements
+- CI/CD with Github actions to prevent merging code until test complete successfully
+- Backend integration tests
+- Perhaps more code documentation
