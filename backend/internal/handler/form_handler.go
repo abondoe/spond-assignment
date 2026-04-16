@@ -2,7 +2,6 @@ package handler
 
 import (
 	"abondoe/spond-assignment/internal/service"
-	"encoding/json"
 	"errors"
 	"net/http"
 
@@ -40,6 +39,5 @@ func (h *FormHandler) GetForm(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(form)
+	respondWithJSON(w, http.StatusOK, form)
 }

@@ -13,11 +13,10 @@ type MemberType struct {
 }
 
 type Form struct {
-	// Litt rart at ClubId ikke er en UUID her - jeg ville kallet den clubName eller lignende
+	// Odd that ClubId isn´t a UUID - I would have called it clubName or similar
 	ClubId            string
 	MemberTypes       []MemberType
 	FormId            uuid.UUID
 	Title             string
 	RegistrationOpens time.Time
-	createdAt         time.Time
 }

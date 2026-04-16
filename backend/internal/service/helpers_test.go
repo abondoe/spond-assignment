@@ -29,10 +29,6 @@ func validCompactActiveMemberTypeId() types.CompactUUID {
 	return types.CompactUUID(validActiveMemberTypeId())
 }
 
-func validCompactSocialMemberTypeId() types.CompactUUID {
-	return types.CompactUUID(validSocialMemberTypeId())
-}
-
 func validCreateRegistrationRequest() dto.CreateRegistrationRequest {
 	return dto.CreateRegistrationRequest{
 		FormId:       validCompactFormId(),
