@@ -1,0 +1,10 @@
+# Temporary files and directories
+tmp/
+*.tmp
+*.test
+*.prof
+*.out
+
+# Live-reload (Air) specific
+/tmp
+/bin
