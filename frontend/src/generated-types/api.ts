@@ -7,11 +7,11 @@ models.go
 */
 
 export interface MemberType {
-  id: any /* types.CompactUUID */;
+  id: string /* uuid */;
   name: string;
 }
 export interface GetFormResponse {
-  formId: any /* types.CompactUUID */;
+  formId: string /* uuid */;
   clubId: string;
   memberTypes: MemberType[];
   title: string;
@@ -25,22 +25,10 @@ models.go
 */
 
 export interface CreateRegistrationRequest {
-  memberId: any /* types.CompactUUID */;
-  formId: any /* types.CompactUUID */;
-  memberTypeId: any /* types.CompactUUID */;
+  formId: string /* uuid */;
+  memberTypeId: string /* uuid */;
   name: string;
   email: string;
   phoneNumber: string;
   birthDate: string /* RFC3339 */;
-}
-export interface CreateRegistrationResponse {
-  id: any /* types.CompactUUID */;
-  formId: any /* types.CompactUUID */;
-  memberTypeId: any /* types.CompactUUID */;
-  name: string;
-  email: string;
-  phoneNumber: string;
-  birthDate: string /* RFC3339 */;
-  memberId: any /* types.CompactUUID */;
-  createdAt: string /* RFC3339 */;
 }
