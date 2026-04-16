@@ -25,6 +25,7 @@ The backend exposes a REST API consumed by the frontend. TypeScript types are ge
 | Docker & Docker Compose | Latest | ✅ |
 | Mise-en-place | Latest | ✅ |
 | Tygo | Latest | ✅ |
+| Playwright | Latest | ✅ |
  
 Find the installation instructions for mise (Mise-en-place) here: https://mise.jdx.dev/getting-started.html
 
@@ -39,18 +40,36 @@ To install tygo globally, run:
 go install github.com/gzuidhof/tygo@latest
 ```
 
+To install playwright globally:
+```bash
+npx playwright install
+```
+
 ### Start Everything at Once
 
 Mprocs is one of the tools that are installed by mise. Run mprocs to spin up the backend, frontend, and db for development:
+
+If it is the first time you run `mprocs` you must install all code dependencies first:
+
 ```bash
- mprocs
+npm run install
+ ```
+
+Then spin up everything:
+
+```bash
+mprocs
+ ```
+ Remember to migrate your DB before trying to register a new member:
+ ```bash
+npm run db:migrate
  ```
 
  > Frontend found on: http://localhost:5180/
  
  > Use http://localhost:5180/B171388180BC457D9887AD92B6CCFC86 to access the preconfigured form
 
-This single command starts all three services concurrently. Make sure Docker is running before you execute it, as the database starts in a container.
+
  
 ### Start Services Individually
  
@@ -171,4 +190,5 @@ npm run e2e:test
 ## Future improvements
 - CI/CD with Github actions to prevent merging code until test complete successfully
 - Backend integration tests
-- Perhaps more code documentation
+- More code documentation
+- More unit tests all over

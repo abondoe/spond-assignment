@@ -2,6 +2,7 @@
   "name": "spond-assignment",
   "version": "1.0.0",
   "scripts": {
+    "install": "npm run frontend:install",
     "backend:run": "cd backend && air",
     "backend:build": "cd backend && go build -o bin/api ./cmd/api",
     "backend:test": "cd backend && go test ./...",
