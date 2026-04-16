@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "test:watch": "vitest",
     "test": "vitest run",
     "format": "prettier --write .",
+    "format:check": "prettier .",
     "check": "tsc --noEmit"
   },
   "dependencies": {

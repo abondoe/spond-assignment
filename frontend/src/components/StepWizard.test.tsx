@@ -6,9 +6,9 @@ describe("StepWizard Component", () => {
   // Mock data and functions
   const mockProps = {
     title: "Registration Wizard",
-    stepDescriptions: { 
-      1: "Enter your personal details", 
-      2: "Choose your membership" 
+    stepDescriptions: {
+      1: "Enter your personal details",
+      2: "Choose your membership",
     },
     stepForms: {
       1: <div data-testid="form-step-1">Form Step 1 Content</div>,
@@ -29,19 +29,21 @@ describe("StepWizard Component", () => {
 
   it("should render the first step correctly", () => {
     render(<StepWizard {...mockProps} />);
-    
-    expect(screen.getByTestId("title")).toHaveTextContent("Registration Wizard");
+
+    expect(screen.getByTestId("title")).toHaveTextContent(
+      "Registration Wizard",
+    );
     expect(screen.getByText("Enter your personal details")).toBeInTheDocument();
     expect(screen.getByTestId("form-step-1")).toBeInTheDocument();
     expect(screen.getByText("1 / 2")).toBeInTheDocument();
-    
+
     // Back button should not be visible on the first step
     expect(screen.queryByTestId("back-button")).not.toBeInTheDocument();
   });
 
   it("should navigate to the next step when validation passes", () => {
     render(<StepWizard {...mockProps} />);
-    
+
     const nextButton = screen.getByTestId("next-button");
     fireEvent.click(nextButton);
 
@@ -57,24 +59,26 @@ describe("StepWizard Component", () => {
       ...mockProps,
       stepValidations: { 1: () => 1, 2: () => 0 },
     };
-    
+
     render(<StepWizard {...propsWithErrors} />);
-    
+
     fireEvent.click(screen.getByTestId("next-button"));
 
     // Validation was called, but step didn't change
     expect(screen.getByText("1 / 2")).toBeInTheDocument();
-    expect(screen.queryByText("Choose your membership")).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("Choose your membership"),
+    ).not.toBeInTheDocument();
     expect(mockProps.onNavigate).not.toHaveBeenCalled();
   });
 
   it("should allow navigating back to the previous step", () => {
     render(<StepWizard {...mockProps} />);
-    
+
     // Move to step 2
     fireEvent.click(screen.getByTestId("next-button"));
     expect(screen.getByText("2 / 2")).toBeInTheDocument();
-    
+
     // Click back
     const backButton = screen.getByTestId("back-button");
     fireEvent.click(backButton);
@@ -85,10 +89,10 @@ describe("StepWizard Component", () => {
 
   it("should call onSubmit when clicking the submit button on the final step", () => {
     render(<StepWizard {...mockProps} />);
-    
+
     // Navigate to the final step
     fireEvent.click(screen.getByTestId("next-button"));
-    
+
     const submitButton = screen.getByTestId("submit-button");
     fireEvent.click(submitButton);
 
@@ -97,10 +101,10 @@ describe("StepWizard Component", () => {
 
   it("should show a loading spinner and disable the button while submitting", async () => {
     render(<StepWizard {...mockProps} />);
-    
+
     // Go to final step
     fireEvent.click(screen.getByTestId("next-button"));
-    
+
     const submitButton = screen.getByTestId("submit-button");
     fireEvent.click(submitButton);
 
