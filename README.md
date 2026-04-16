@@ -195,7 +195,8 @@ In this project I've only used AI sparsely as a search engine when there are thi
 
 ---
 ## Future improvements
-- CI/CD with Github actions to prevent merging code until test complete successfully
+- CI with Github actions to prevent merging code until test complete successfully
+- CD with Github actions for deployment as needed
 - Backend integration tests
 - More code documentation
 - More unit tests all over
