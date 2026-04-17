@@ -190,7 +190,7 @@ npm run e2e:test
 ```
 ---
 ## Assigment quirks
-The ids used in appendix 1 was not standard formatted UUIDs. However, I took the assignment text literal and provided the UUIDs from the backend in this non standard way, but internal to the backend I've used standard UUID types so as to have a strong typed UUID both in the backend and the database. I`ve called the non standard UUIDs compact UUIds in the code, and I've implemented marshalling/unmarshalling to handle the non standard UUID as and ouptut and as an input to the endpoints. Notice, that I did this just to show that this was possible, but I would usually not do it like this in a real world project.
+The ids used in appendix 1 was not standard formatted UUIDs. However, I took the assignment text literal and provided the UUIDs from the backend in this non standard way, but internal to the backend I've used standard UUID types so as to have a strong typed UUID both in the backend and the database. I`ve called the non standard UUIDs compact UUIds in the code, and I've implemented marshalling/unmarshalling to handle the non standard UUID as an output and as an input to the endpoints. Notice that I did this just to show that this was possible, but I would usually not do it like this in a real world project.
 
 ---
 ## AI usage
